@@ -1,3 +1,0 @@
-class base_security {
-
-}

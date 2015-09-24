@@ -1,0 +1,10 @@
+Cmnd_Alias NETWORKING = /sbin/route, /sbin/ifconfig, /bin/ping, /usr/bin/net, /sbin/iptables, /usr/bin/rfcomm, /usr/bin/wvdial, /sbin/iwconfig, /sbin/mii-tool 
+Cmnd_Alias SOFTWARE = /bin/rpm, /usr/bin/yum 
+Cmnd_Alias SERVICES = /sbin/service, /sbin/chkconfig 
+Cmnd_Alias STORAGE = /sbin/fdisk, /sbin/sfdisk, /sbin/parted, /sbin/partprobe, /bin/mount, /bin/umount, /sbin/pvscan, /sbin/lvscan 
+Cmnd_Alias DELEGATING = /bin/chown, /bin/chmod, /bin/chgrp 
+Cmnd_Alias PROCESSES = /bin/nice, /bin/kill, /usr/bin/kill, /usr/bin/killall 
+Cmnd_Alias DRIVERS = /sbin/modprobe 
+Cmnd_Alias MONITOR = /usr/bin/vmstat,/usr/bin/dstat,/usr/bin/top,/bin/ps,/usr/bin/free,/bin/cat,/bin/more,/usr/bin/tailf 
+
+sysadm	ALL=NETWORKING,SOFTWARE,SERVICES,STORAGE,DELEGATING,PROCESSES,DRIVERS,MONITOR
