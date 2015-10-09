@@ -33,7 +33,6 @@ class sys_services::disable_services (
 			yum-updatesd,
 			mcstrans,
 			lm_sensors,
-			auditd,
 			rawdevices,
 			rpcgssd,
 			rpcidmapd,
@@ -45,7 +44,7 @@ class sys_services::disable_services (
 			portmap,
 			snmpd,
 		]
-	) inherits sys_services 
+	) 
 	{
 
 	define disable_service ($service = $title) {

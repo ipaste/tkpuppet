@@ -5,6 +5,6 @@ Cmnd_Alias STORAGE = /sbin/fdisk, /sbin/sfdisk, /sbin/parted, /sbin/partprobe, /
 Cmnd_Alias DELEGATING = /bin/chown, /bin/chmod, /bin/chgrp 
 Cmnd_Alias PROCESSES = /bin/nice, /bin/kill, /usr/bin/kill, /usr/bin/killall 
 Cmnd_Alias DRIVERS = /sbin/modprobe 
-Cmnd_Alias MONITOR = /usr/bin/vmstat,/usr/bin/dstat,/usr/bin/top,/bin/ps,/usr/bin/free,/bin/cat,/bin/more,/usr/bin/tailf 
+Cmnd_Alias ADMMONITOR = /usr/bin/vmstat,/usr/bin/dstat,/usr/bin/top,/bin/ps,/usr/bin/free,/bin/cat,/bin/more,/usr/bin/tailf 
 
-sysadm	ALL=NETWORKING,SOFTWARE,SERVICES,STORAGE,DELEGATING,PROCESSES,DRIVERS,MONITOR
+sysadm	ALL=NETWORKING,SOFTWARE,SERVICES,STORAGE,DELEGATING,PROCESSES,DRIVERS,ADMMONITOR

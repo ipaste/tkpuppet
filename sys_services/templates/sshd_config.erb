@@ -1,0 +1,33 @@
+# Create by Puppet, Don't modify manualy!
+
+Protocol 2
+Port <%= @sshd_port %>
+
+<% if @remote_root_login == true %>
+PermitRootLogin yes
+<% else %>
+PermitRootLogin no
+<% end %>
+
+X11Forwarding no
+AllowTcpForwarding no
+
+PasswordAuthentication yes
+
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
+#IgnoreRhosts yes
+#Banner none
+#PermitEmptyPasswords no
+
+SyslogFacility AUTHPRIV
+ChallengeResponseAuthentication no
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials yes
+UsePAM yes
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+
+Subsystem       sftp    /usr/libexec/openssh/sftp-server

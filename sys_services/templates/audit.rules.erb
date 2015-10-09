@@ -1,0 +1,16 @@
+# Create by Puppet, Don't modify manualy!
+
+-D
+-b 8192
+
+<% if @audit_security == true %>
+-f 1
+-e 1
+
+-w /var/log/audit/
+-w /etc/audit/auditd.conf -p rxwa
+-w /etc/audit/audit.rules -p rxwa
+-w /etc/passwd -p rwxa
+-w /etc/sysconfig/
+
+<% end %>

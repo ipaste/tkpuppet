@@ -1,8 +1,15 @@
+# 1. add user sysadm, default password is taikang123
+# 2. setup sysadm can su to root,other user can't su to root
+# 3. setup sysadm can use sudo run system command
+# 4. add user sysmon, default password is taikang123
+# 5. setup sysadm can use sudo run monitor command
+# 6. If you want modify the password of sysadmin,you can run "grub-md5-crypt" and set it in the foreman.
 
 class sys_security_account::sysuser (
-	$sysadm_passwd = "$6$9bRH.A.Y3TKRmk81$NF5P5xRUDlNo53mKwW/cojtaRGN6gUjKvAheUGliZIi92Fc1nN7HNs9MqLLe7QqWDcnnN7V2MeW98W6.6HdlL0",
-	$sysmon_passwd = "$6$9bRH.A.Y3TKRmk81$NF5P5xRUDlNo53mKwW/cojtaRGN6gUjKvAheUGliZIi92Fc1nN7HNs9MqLLe7QqWDcnnN7V2MeW98W6.6HdlL0"
-){
+	$sysadm_passwd = '$1$eRWSR$KIWqmyai5VoyxdvjDttdT0',
+	$sysmon_passwd = '$1$eRWSR$KIWqmyai5VoyxdvjDttdT0',
+)
+{
 
 	group { 'sysadm':
 		ensure		=> 'present',
@@ -13,25 +20,23 @@ class sys_security_account::sysuser (
 		ensure		=> 'present',
 		uid			=> '901',
 		gid			=> '901',
-		groups		=> ['wheel'],
+		groups		=> 'wheel',
 		password	=> "$sysadm_passwd",
 		shell		=> '/bin/bash',
-		home		=> '/home/sysmon',
+		home		=> '/home/sysadm',
 		managehome	=> true,
 	}
 
 	file { '/etc/pam.d/su':
 		ensure		=> 'present',
-		path		=> /etc/pam.d/su',
 		owner		=> 'root',
 		group 		=> 'root',
 		mode		=> '644',
-		content		=> template('sys_security_account/pam_su.erb'),
+		content		=> template("sys_security_account/pam_su.erb"),
 	}
 
 	file { '/etc/sudoers.d/sysadm':
 		ensure		=> 'present',
-		path		=> '/etc/sudoers.d/sysadm',
 		owner		=> 'root',
 		group		=> 'root',
 		mode		=> '440',
@@ -53,7 +58,6 @@ class sys_security_account::sysuser (
 	}
 	file { '/etc/sudoers.d/sysmon':
 		ensure		=> 'present',
-		path		=> '/etc/sudoers.d/sysmon',
 		owner		=> 'root',
 		group		=> 'root',
 		mode		=> '440',

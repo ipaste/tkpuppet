@@ -1,0 +1,17 @@
+# Create by Puppet, Don't modify manualy!
+
+
+driftfile /var/lib/ntp/drift
+
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+
+restrict 127.0.0.1
+restrict -6 ::1
+
+<% ntp_services.each do |value| -%>
+server <%= value %> iburst
+<% end -%>
+
+includefile /etc/ntp/crypto/pw
+keys /etc/ntp/keys

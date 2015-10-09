@@ -3,7 +3,7 @@ class sys_security_account::password_strong {
 		ensure		=> 'present',
 		owner		=> 'root',
 		group		=> 'root',
-		mode		=> '440',
-		content		=> template("sys_security_account/pam_system-auth.erb"),
+		mode		=> '644',
+		content		=> template("sys_security_account/pam_system_auth.erb"),
 	}
 }
