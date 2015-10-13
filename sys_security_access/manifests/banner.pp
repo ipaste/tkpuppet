@@ -2,9 +2,9 @@
 # 2. add login warning message to motd,this message will show after login.
 
 class sys_security_access::banner (
-	$issue_message 	= 'Welcome to Taikang Linux System\n',
-	$issue_net_message 	= 'Welcome to Taikang Linux System\n',
-	$motd_message	= 'Warning,Be carefully '
+	$issue_message 	= 'Welcome to Taikang Linux System!',
+	$issue_net_message 	= 'Welcome to Taikang Linux System!',
+	$motd_message	= 'Warning,Be carefully ',
 )
 {
 

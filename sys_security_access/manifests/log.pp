@@ -9,7 +9,7 @@ class sys_security_access::log
 		owner		=> 'root',
 		group 		=> 'root',
 		mode		=> '644',
-		content		=> 'HISTTIMEFORMAT="%F %T "',
+		content		=> 'HISTTIMEFORMAT="[%F %T][`whoami`][`who -u am i 2>/dev/null| awk '{print $NF}'|sed -e 's/[()]//g'`] "',
 	}
 
 	file { "/etc/logrotate.d/secure":

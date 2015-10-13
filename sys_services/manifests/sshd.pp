@@ -31,6 +31,15 @@ class sys_services::sshd (
 		content		=> template('sys_services/sshd_config.erb'),
 	}
 
+	file { '/etc/ssh/ssh_banner':
+		ensure		=> 'present',
+		owner		=> 'root',
+		group 		=> 'root',
+		mode		=> '600',
+		require		=> Package['openssh-server'],
+		content		=> template('sys_services/sshd_banner.erb'),
+	}
+
 	service { "sshd":
 			ensure		=> 'running',
 			enable		=> true,
